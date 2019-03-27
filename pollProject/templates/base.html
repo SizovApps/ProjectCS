@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}TrustChain{% endblock %}</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design for Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg primary-color navbar-dark scrolling-navbar">
+    <div class="container">
+        <a href="{%  url 'core:PollList' %}" class="navbar-brand waves-effect"><strong class="white-text">TrustChain</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigations">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active mainNav" style="margin-left: 20px;">
+                    <a href="{%  url 'core:PollList' %}" class="nav-link waves-effect"><i class="fa fa-ticket" aria-hidden="true"></i>Все опросы</a>
+                </li>
+                <li class="nav-item " style="margin-left: 20px;">
+                    <a href="#" class="nav-link waves-effect">Кино</a>
+                </li>
+                <li class="nav-item " style="margin-left: 20px;">
+                    <a href="#" class="nav-link waves-effect">Театр</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav nav-flex-icons">
+             {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        {% if user.is_authenticated %}
+                        <a class="dropdown-item" href="#">Посмотреть в профиль</a>
+                            <a href="">Выйти</a>
+
+                        {% endif %}
+                    </div>
+                </li>
+                {% else %}
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href=""><button type="button" class="btn btn-indigo">Войти</button></a>
+                    <a href=""><button type="button" class="btn btn-cyan">Зарегистрироваться</button></a>
+</div>
+
+            {% endif %}
+
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <!-- Material Design for Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+
+  <script>
+    new WOW().init();
+  </script>
+</body>
+</html>
